@@ -1,0 +1,14 @@
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over palvelin:
+pyynnön mukana tuleva json data
+johon kuuluu content ja date
+end note
+
+palvelin->selain: 201 created
+
+note over selain:
+js-koodi estää sivun uudelleen lataamisen
+luo uuden muistiipanon
+piirtää muistiipanojen listan uudelleen
+ja lähettää uuden muistiinpanon palvelimelle
