@@ -2,53 +2,82 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 const Statistics = (props) => {
-  console.log('score', props)
+  console.log("score", props);
   return (
-  <div>
-    <h1>Statistics</h1>
-    {(props.good + props.neutral + props.bad) ?
     <div>
-      Good: {props.good}
-      <br />
-      Neutral: {props.neutral}
-      <br />
-      Bad: {props.bad}
-      <br />
-      All: {props.bad + props.good + props.neutral}
-      <br />
-      Average: {(props.good + -props.bad) / (props.bad + props.good + props.neutral)}
-      <br />
-      Positive: {(props.good / (props.bad + props.good + props.neutral)) * 100}%
-    </div> :
-    <div>
-      No feedback given.
+      <h1>Statistics</h1>
+      {props.all ? (
+        <div>
+          <StatisticLine text="Good" value={props.good} />
+          <StatisticLine text="Neutral" value={props.neutral} />
+          <StatisticLine text="Bad" value={props.bad} />
+          <StatisticLine text="All" value={props.all} />
+          <StatisticLine
+            text="Average"
+            value={(props.good + -props.bad) / props.all}
+          />
+          <StatisticLine
+            text="Positive"
+            value={(props.good / props.all) * 100 + "%"}
+          />
+        </div>
+      ) : (
+        <div>No feedback given.</div>
+      )}
     </div>
-    }
-  </div>
-  )
-}
+  );
+};
+
+const StatisticLine = ({ text, value }) => {
+  return (
+    <div>
+      <div>
+        {text}: {value}
+      </div>
+    </div>
+  );
+};
+
+const Button = ({ onClick, text }) => {
+  return <button onClick={onClick}>{text}</button>;
+};
 
 const App = () => {
-  const [good, setGood] = useState(0)
-  const [neutral, setNeutral] = useState(0)
-  const [bad, setBad] = useState(0)
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+  const [allVotes, setAll] = useState(0);
+
+  const handleGoodVote = () => {
+    setAll(allVotes + 1);
+    setGood(good + 1);
+  };
+
+  const handleNeutralVote = () => {
+    setAll(allVotes + 1);
+    setNeutral(neutral + 1);
+  };
+
+  const handleBadVote = () => {
+    setAll(allVotes + 1);
+    setBad(bad + 1);
+  };
 
   return (
     <div>
       <h1>Give feedback</h1>
       <div>
-        <button onClick={() => setGood(good + 1)}>Good</button>
+        <Button onClick={handleGoodVote} text="Good" />
         <br />
         <br />
-        <button onClick={() => setNeutral(neutral + 1)}>Neutral</button>
+        <Button onClick={handleNeutralVote} text="Neutral" />
         <br />
         <br />
-        <button onClick={() => setBad(bad + 1)}>Bad</button>
+        <Button onClick={handleBadVote} text="Bad" />
       </div>
-      <Statistics good={good} neutral={neutral} bad={bad} />
-
+      <Statistics good={good} neutral={neutral} bad={bad} all={allVotes} />
     </div>
-  )
-}
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById("root"))
+ReactDOM.render(<App />, document.getElementById("root"));
