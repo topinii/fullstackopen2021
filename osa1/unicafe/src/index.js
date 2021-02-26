@@ -12,13 +12,17 @@ const App = () => {
       <h1>Give feedback</h1>
       <div>
         <button onClick={() => setGood(good + 1)}>
-          good
+          Good
         </button>
+        <br />
+        <br />
         <button onClick={() => setNeutral(neutral + 1)}>
-          neutral
+          Neutral
         </button>
+        <br />
+        <br />
         <button onClick={() => setBad(bad + 1)}>
-          bad
+          Bad
         </button>
       </div>
       <div>
@@ -29,7 +33,7 @@ const App = () => {
           Bad: {bad}<br />
           All: {bad + good + neutral}<br />
           Average: {((good) + (-bad)) / (bad + good + neutral)}<br />
-          Positive: {good / (bad + good + neutral)}%
+          Positive: {(good / (bad + good + neutral)) * 100}%
         </div>
       </div>
     </div>
