@@ -8,16 +8,31 @@ const Button = ({ onClick, text }) => (
 );
 
 const App = (props) => {
+  const votes = new Uint8Array(5)
+
+
   const [selected, setSelected] = useState(0);
+  console.log('selected', selected)
 
   const handleClick = () => {
     setSelected(Math.floor(Math.random() * Math.floor(5)));
+  const copy = [...votes]
+
+    copy[selected] += 1
+
+  console.log('copy', copy)
   };
+
+  const handleVote = () => {
+
+
+  }
 
   return (
     <div>
       <Button onClick={handleClick} text="Random" />
       <div>{props.anecdotes[selected]}</div>
+      <Button onClick={handleVote} text="Vote" />
     </div>
   );
 };
@@ -31,4 +46,4 @@ const anecdotes = [
   "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
 ];
 
-ReactDOM.render(<App anecdotes={anecdotes} />, document.getElementById("root"));
+ReactDOM.render(<App anecdotes={anecdotes} />, document.getElementById("root"));
