@@ -23,7 +23,7 @@ const App = () => {
       },
       {
         name: 'State of a test',
-        exercises: 13,
+        exercises: 69,
         id: 4
       }
     ]
