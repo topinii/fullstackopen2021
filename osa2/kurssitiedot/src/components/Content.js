@@ -4,7 +4,7 @@ import Total from "./Total";
 
 const Content = (props) => {
   const { parts } = props;
-// console.log(props)
+
   return (
     <div>
       <div>
