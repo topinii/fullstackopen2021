@@ -7,6 +7,7 @@ const Course = (props) => {
 
   return (
     <div>
+      <h1>Web dev curriculum</h1>
       {courses.map((course) => (
         <div key={course.id}>
           <Header course={course.name} />
