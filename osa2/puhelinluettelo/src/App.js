@@ -17,6 +17,11 @@ const App = (props) => {
   };
 
   const handleNameChange = (event) => {
+    if (names.includes(event.target.value)) {
+      console.log('terver', names)
+    } else {
+      console.log('nopeti', names)
+    }
     setNewName(event.target.value);
   };
 
