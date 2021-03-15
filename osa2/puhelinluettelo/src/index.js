@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-const names = [{ content: "Arto Hellas", id: 1 }];
+const names = [{ content: "Mati", id: 1 }];
 
 ReactDOM.render(
   <React.StrictMode>
