@@ -4,6 +4,9 @@ import Name from "./components/Name";
 const App = (props) => {
   const [names, setNames] = useState(props.names);
   const [newName, setNewName] = useState("");
+  const [showAll, setShowAll] = useState(true);
+
+  const checkDuplicate = names.filter(name => name.content);
 
   const addName = (event) => {
     event.preventDefault();
@@ -14,16 +17,20 @@ const App = (props) => {
 
     setNames(names.concat(nameObject));
     setNewName("");
+
+    if (newName === checkDuplicate.map(name => name.content)) {
+      console.log('löytyy')
+    } else {
+      console.log('ei löydy')
+      console.log(checkDuplicate.map(name => name.content))
+    }
   };
 
   const handleNameChange = (event) => {
-    if (names.includes(event.target.value)) {
-      console.log('terver', names)
-    } else {
-      console.log('nopeti', names)
-    }
     setNewName(event.target.value);
   };
+
+  // const duplicateCheck = names.filter((name) => name.content === event.target.value);
 
   return (
     <div>
