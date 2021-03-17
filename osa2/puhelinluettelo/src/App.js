@@ -19,7 +19,7 @@ const App = (props) => {
     setNewName("");
 
     if (newName === checkDuplicate.map(name => name.content)) {
-      console.log('löytyy')
+      console.log('löytyy'
     } else {
       console.log('ei löydy')
       console.log(checkDuplicate.map(name => name.content))
