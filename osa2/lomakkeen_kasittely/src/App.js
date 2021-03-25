@@ -18,8 +18,8 @@ const App = (props) => {
   useEffect(hook, []);
 
   const toggleImportanceOf = (id) => {
-    console.log('importance of ' + id + ' needs to be toggled')
-  }
+    console.log(`importance of ${id} needs to be toggled`);
+  };
 
   const addNote = (event) => {
     event.preventDefault();
@@ -52,7 +52,11 @@ const App = (props) => {
       </div>
       <ul>
         {notesToShow.map((note) => (
-          <Note key={note.id} note={note} toggleImportance={() => toggleImportanceOf(note.id)}/>
+          <Note
+            key={note.id}
+            note={note}
+            toggleImportance={() => toggleImportanceOf(note.id)}
+          />
         ))}
       </ul>
       <form onSubmit={addNote}>
