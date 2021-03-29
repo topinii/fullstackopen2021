@@ -33,13 +33,13 @@
     {
       "content": "testii",
       "date": "2021-03-23T09:48:47.908Z",
-      "important": false,
+      "important": true,
       "id": 6
     },
     {
       "content": "yeah boiii",
       "date": "2021-03-23T09:48:55.689Z",
-      "important": false,
+      "important": true,
       "id": 7
     },
     {
