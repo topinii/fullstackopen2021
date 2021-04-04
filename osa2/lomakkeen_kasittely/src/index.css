@@ -17,7 +17,7 @@ h1 {
   font-style: italic;
 }
 
-li {
+.note {
   color: grey;
   padding-top: 3px;
   font-size: 15px;
