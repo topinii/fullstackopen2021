@@ -45,7 +45,7 @@
     {
       "content": "terve",
       "date": "2021-03-23T09:49:21.992Z",
-      "important": false,
+      "important": true,
       "id": 8
     },
     {
@@ -57,7 +57,7 @@
     {
       "content": "sad",
       "date": "2021-03-30T12:14:37.892Z",
-      "important": true,
+      "important": false,
       "id": 10
     }
   ]
