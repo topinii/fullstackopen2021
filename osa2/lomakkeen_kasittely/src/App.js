@@ -2,13 +2,28 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Note from "./components/Note";
 import noteService from "./services/notes";
-import Notification from './components/Notification'
+import Notification from "./components/Notification";
+
+const Footer = () => {
+  const footerStyle = {
+    color: "green",
+    fontStyle: "bold",
+    fontSize: 16,
+  };
+
+  return (
+    <div style={footerStyle}>
+      <br />
+      <em>Note app, Department of Lost Gates</em>
+    </div>
+  )
+};
 
 const App = (props) => {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState("");
   const [showAll, setShowAll] = useState(true);
-  const [errorMessage, setErrorMessage] = useState('some error happened...')
+  const [errorMessage, setErrorMessage] = useState("some error happened...");
 
   useEffect(() => {
     noteService.getAll().then((initialNotes) => {
@@ -29,10 +44,10 @@ const App = (props) => {
       .catch((error) => {
         setErrorMessage(
           `Note '${note.content}' was already removed from server`
-        )
+        );
         setTimeout(() => {
-          setErrorMessage(null)
-        }, 5000)
+          setErrorMessage(null);
+        }, 5000);
         setNotes(notes.filter((n) => n.id !== id));
       });
   };
@@ -80,6 +95,7 @@ const App = (props) => {
         <input value={newNote} onChange={handleNoteChange} />
         <button type="submit">save</button>
       </form>
+      <Footer />
     </div>
   );
 };
