@@ -37,11 +37,17 @@ app.get("/api/notes/:id", (request, response) => {
   });
 
   if (note) {
-    response.json(note)
+    response.json(note);
+  } else {
+    response.status(404).end();
   }
-  else {
-    response.status(404).end()
-  }
+});
+
+app.delete("/api/notes/:id", (request, response) => {
+  const id = Number(request.params.id);
+  notes = notes.filter((note) => note.id !== id);
+
+  response.status(204).end();
 });
 
 const PORT = 3001;
