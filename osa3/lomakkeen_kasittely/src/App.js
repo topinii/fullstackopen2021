@@ -29,7 +29,7 @@ const App = (props) => {
     noteService.getAll().then((initialNotes) => {
       setNotes(initialNotes);
     });
-  }, []);
+  }, []);s
 
   const toggleImportanceOf = (id) => {
     const url = `http://localhost:3001/notes/${id}`;
